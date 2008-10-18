@@ -1,7 +1,10 @@
 <h1>Welcome</h1>
 
 <% if logged_in? and current_user.id == @user.id %>
+
   <p><strong>You are logged in as <%=h @user.login %></strong></p>
+  <p><strong>Hola  <%=h @user.firstname%><%= @user.lastname%>, nos importas mucho... gracias por venir </strong></p>
+
 
 <% if @user.is_admin? %>
 <p><%= link_to 'Panel de administración', admin_path %></p>
