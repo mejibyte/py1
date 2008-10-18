@@ -6,6 +6,8 @@ ActionController::Routing::Routes.draw do |map|
 
   map.resource :session
 
+  map.resource :admin
+
   # The priority is based upon order of creation: first created -> highest priority.
 
   # Sample of regular route:

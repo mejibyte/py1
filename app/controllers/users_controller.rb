@@ -5,7 +5,7 @@ class UsersController < ApplicationController
 
   def create
     cookies.delete :auth_token
-    # protects against session fixation attacks, wreaks havoc with 
+    # protects against session fixation attacks, wreaks havoc with
     # request forgery protection.
     # uncomment at your own risk
     # reset_session
@@ -19,5 +19,14 @@ class UsersController < ApplicationController
       render :action => 'new'
     end
   end
+
+  def show
+    @user = User.find(params[:id])
+    respond_to do |format|
+      format.html # show.html.erb
+      format.xml  { render :xml => @alumno }
+    end
+  end
+
 
 end

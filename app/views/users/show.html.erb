@@ -1,0 +1,16 @@
+<h1>Welcome</h1>
+
+<% if logged_in? and current_user.id == @user.id %>
+  <p><strong>You are logged in as <%=h @user.login %></strong></p>
+
+<% if @user.is_admin? %>
+<p><%= link_to 'Panel de administración', admin_path %></p>
+<% end -%>
+  <p><%= link_to 'Logout', session_path, :method => :delete %></p>
+<% else %>
+  <p><strong>You are currently not logged in.</strong></p>
+  <p>
+    <%= link_to 'Login', new_session_path %> or
+    <%= link_to 'Sign Up', new_user_path %>
+  </p>
+<% end %>
