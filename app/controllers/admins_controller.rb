@@ -1,13 +1,5 @@
 # -*- coding: utf-8 -*-
 class AdminsController < ApplicationController
-  def authorized?
-    current_user.is_admin?
-  end
-
-  def see_me
-    true
-  end
-
   def show
     if logged_in?
     else
