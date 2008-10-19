@@ -2,8 +2,8 @@
 
 <% if logged_in? and current_user.id == @user.id %>
 
-  <p><strong>You are logged in as <%=h @user.login %></strong></p>
-  <p><strong>Hola  <%=h @user.firstname%><%= @user.lastname%>, nos importas mucho... gracias por venir </strong></p>
+  <p><strong>logged in as <%=h @user.login %></strong></p>
+  <p><strong>Hola <%=h @user.firstname%><%=h @user.lastname%></strong></p>
 
 
 <% if @user.is_admin? %>
