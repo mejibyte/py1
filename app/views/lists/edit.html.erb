@@ -1,0 +1,20 @@
+<h1>Editing list</h1>
+
+<% form_for([@user, @list]) do |f| %>
+  <%= f.error_messages %>
+
+  <p>
+    <%= f.label :name %><br />
+    <%= f.text_field :name %>
+  </p>
+  <p>
+    <%= f.label :date %><br />
+    <%= f.datetime_select :date %>
+  </p>
+  <p>
+    <%= f.submit "Update" %>
+  </p>
+<% end %>
+
+<%= link_to 'Show', [@user, @list] %> |
+<%= link_to 'Back', user_lists_path(@user) %>

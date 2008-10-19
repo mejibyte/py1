@@ -1,0 +1,13 @@
+<p>
+  <b>Name:</b>
+  <%=h @list.name %>
+</p>
+
+<p>
+  <b>Date:</b>
+  <%=h @list.date %>
+</p>
+
+
+<%= link_to 'Edit', edit_user_list_path(@user, @list) %> |
+<%= link_to 'Back', user_lists_path(@user) %>

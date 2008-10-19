@@ -5,6 +5,7 @@
   <p><strong>logged in as <%=h @user.login %></strong></p>
   <p><strong>Hola <%=h @user.firstname%><%=h @user.lastname%></strong></p>
 
+<%= link_to 'Mis listas de mercado', user_lists_path(@user) %>
 
 <% if @user.is_admin? %>
 <p><%= link_to 'Panel de administración', admin_path %></p>

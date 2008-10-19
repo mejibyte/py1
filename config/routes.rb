@@ -1,10 +1,12 @@
 ActionController::Routing::Routes.draw do |map|
+  map.resources :lists
+
   map.resources :products
 
 
   map.root :controller => "home", :action => "index"
 
-  map.resources :users
+  map.resources :users, :has_many => [ :lists ]
 
   map.resource :session
 
