@@ -9,9 +9,9 @@
   <tr>
     <td><%=h list.name %></td>
     <td><%=h list.date %></td>
-    <td><%= link_to 'Show', [@user, list] %></td>
-    <td><%= link_to 'Edit', edit_user_list_path(@user, list) %></td>
-    <td><%= link_to 'Destroy', [@user, list], :confirm => 'Are you sure?', :method => :delete %></td>
+    <td><%= link_to 'Ver', [@user, list] %></td>
+    <td><%= link_to 'Editar', edit_user_list_path(@user, list) %></td>
+    <td><%= link_to 'Eliminar', [@user, list], :confirm => 'Are you sure?', :method => :delete %></td>
   </tr>
 <% end %>
 </table>

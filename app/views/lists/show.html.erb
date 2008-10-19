@@ -1,3 +1,5 @@
+<h1>Lista de Mercado</h1>
+
 <p>
   <b>Name:</b>
   <%=h @list.name %>
@@ -9,5 +11,5 @@
 </p>
 
 
-<%= link_to 'Edit', edit_user_list_path(@user, @list) %> |
-<%= link_to 'Back', user_lists_path(@user) %>
+<%= link_to 'Editar', edit_user_list_path(@user, @list) %> |
+<%= link_to 'Listas', user_lists_path(@user) %>

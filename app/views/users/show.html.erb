@@ -1,9 +1,28 @@
-<h1>Welcome</h1>
+<h1>Welcome <%=h @user.login%></h1>
 
 <% if logged_in? and current_user.id == @user.id %>
 
-  <p><strong>logged in as <%=h @user.login %></strong></p>
-  <p><strong>Hola <%=h @user.firstname%><%=h @user.lastname%></strong></p>
+
+
+<p>Datos de Usuario</p>
+<TABLE>
+  <TR>
+    <TD>Nombre:</TD>
+    <TD><strong><%=h @user.firstname%></strong></TD>
+</TR>
+
+ <TR>
+    <TD>Apellido:</TD>
+    <TD><strong><%=h @user.lastname %></strong></TD>
+</TR>
+
+ <TR>
+    <TD>Correo:</TD> 
+   <TD><strong><%=h @user.email %></strong></TD>
+</TR>
+
+
+</TABLE>
 
 <%= link_to 'Mis listas de mercado', user_lists_path(@user) %>
 

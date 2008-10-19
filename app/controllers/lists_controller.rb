@@ -36,7 +36,7 @@ class ListsController < ApplicationController
   # GET /lists/new.xml
   def new
     @list = @user.lists.build
-
+    
     respond_to do |format|
       format.html # new.html.erb
       format.xml  { render :xml => @list }
@@ -52,7 +52,7 @@ class ListsController < ApplicationController
   # POST /lists.xml
   def create
     @list = @user.lists.build(params[:list])
-
+    @list.date = Time.now.advance(:hours=>-5)
     respond_to do |format|
       if @list.save
         flash[:notice] = 'List was successfully created.'

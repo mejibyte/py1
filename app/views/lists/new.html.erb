@@ -8,12 +8,13 @@
     <%= f.text_field :name %>
   </p>
   <p>
-    <%= f.label :date %><br />
-    <%= f.datetime_select :date %>
+    <%= f.label Time.parse('EST') %><br />
+    
   </p>
   <p>
     <%= f.submit "Create" %>
   </p>
 <% end %>
 
-<%= link_to 'Cancelar', lists_path %>
+<%= link_to 'Cancelar', user_lists_path(@user) %>
+
