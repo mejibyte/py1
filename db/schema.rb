@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20081019193826) do
+ActiveRecord::Schema.define(:version => 20081020190054) do
 
   create_table "lists", :force => true do |t|
     t.string   "name"
@@ -18,6 +18,13 @@ ActiveRecord::Schema.define(:version => 20081019193826) do
     t.datetime "created_at"
     t.datetime "updated_at"
   end
+
+  create_table "lists_products", :id => false, :force => true do |t|
+    t.integer "list_id"
+    t.integer "product_id"
+  end
+
+  add_index "lists_products", ["list_id", "product_id"], :name => "index_lists_products_on_list_id_and_product_id", :unique => true
 
   create_table "products", :force => true do |t|
     t.string   "name"

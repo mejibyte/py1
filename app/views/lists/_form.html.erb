@@ -1,0 +1,27 @@
+<p>
+  <%= f.label :name %><br />
+  <%= f.text_field :name %>
+</p>
+<p>
+  <%= f.label @list.date || Time.parse('EST') %><br />
+</p>
+
+
+<p>
+  <b>Productos disponibles en el mercado</b>
+
+  <% if Product.count == 0 %>
+  <%= h "Lo sentimos; en el momento no hay productos disponibles." %>
+  <% else %>
+  <% for product in Product.find(:all) -%>
+  <div>
+    <%= check_box_tag "list[product_ids][]", product.id, @list.products.include?(product) %>
+    <%= h product.name %>
+  </div>
+  <% end -%>
+  <% end -%>
+</p>
+
+<p>
+  <%= f.submit "Actualizar" %>
+</p>

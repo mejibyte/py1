@@ -3,16 +3,8 @@
 <% form_for([@user, @list]) do |f| %>
   <%= f.error_messages %>
 
-  <p>
-    <%= f.label :name %><br />
-    <%= f.text_field :name %>
-  </p>
-  <p>
-    <%= f.label @list.date %><br />
-  </p>
-  <p>
-    <%= f.submit "Update" %>
-  </p>
+ <%= render :partial => "form", :locals => { :f => f } %>
+
 <% end %>
 
 <%= link_to 'Show', [@user, @list] %> |

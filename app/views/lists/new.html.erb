@@ -3,17 +3,8 @@
 <% form_for([@user, @list]) do |f| %>
   <%= f.error_messages %>
 
-  <p>
-    <%= f.label :name %><br />
-    <%= f.text_field :name %>
-  </p>
-  <p>
-    <%= f.label Time.parse('EST') %><br />
-    
-  </p>
-  <p>
-    <%= f.submit "Create" %>
-  </p>
+ <%= render :partial => "form", :locals => { :f => f } %>
+
 <% end %>
 
 <%= link_to 'Cancelar', user_lists_path(@user) %>

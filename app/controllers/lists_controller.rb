@@ -36,7 +36,7 @@ class ListsController < ApplicationController
   # GET /lists/new.xml
   def new
     @list = @user.lists.build
-    
+
     respond_to do |format|
       format.html # new.html.erb
       format.xml  { render :xml => @list }
@@ -68,6 +68,7 @@ class ListsController < ApplicationController
   # PUT /lists/1
   # PUT /lists/1.xml
   def update
+    params[:list][:product_ids] ||= []
     @list = @user.lists.find(params[:id])
 
     respond_to do |format|
