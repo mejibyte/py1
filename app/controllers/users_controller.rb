@@ -9,7 +9,18 @@ class UsersController < ApplicationController
     # request forgery protection.
     # uncomment at your own risk
     # reset_session
-    @user = User.new(params[:user])
+    @users=User.find(:all)
+    @user = User.new(params[:user])   
+
+    #############################
+    #me imagino que es algo así #
+    		       	    	#
+    if @users.empty?		#
+       @user.is_admin = true	#
+    end		       	 	#
+    				#
+    #############################
+
     @user.save
     if @user.errors.empty?
       self.current_user = @user
@@ -22,7 +33,8 @@ class UsersController < ApplicationController
 
   def show
     @user = User.find(params[:id])
-    @lists = List.find_all_by_user_id(params[:id])
+    @lists = @user.lists
+
     respond_to do |format|
       format.html # show.html.erb
     end

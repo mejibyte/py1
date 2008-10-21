@@ -24,8 +24,30 @@
 
 </TABLE>
 
-<%= link_to 'Mis listas de mercado', user_lists_path(@user) %>
+<!--<%= link_to 'Mis listas de mercado', user_lists_path(@user) %>-->
 
+<% if @lists.empty?%>
+   No tiene listas guardadas
+
+<% else %>
+<table>
+  <tr>
+    <th>   Name   </th>
+    <th>   Date   </th>
+  </tr>
+
+<% for list in @lists %>
+  <tr>
+    <td><%=h list.name %></td>
+    <td><%=h list.date %></td>
+    <td><%= link_to 'Ver', [@user, list] %></td>
+    <td><%= link_to 'Editar', edit_user_list_path(@user, list) %></td>
+    <td><%= link_to 'Eliminar', [@user, list], :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+<% end %>
+<%= link_to 'Crear Nueva Lista', new_user_list_path(@user) %>
 <% if @user.is_admin? %>
 <p><%= link_to 'Panel de administración', admin_path %></p>
 <% end -%>

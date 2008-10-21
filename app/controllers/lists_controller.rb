@@ -90,7 +90,7 @@ class ListsController < ApplicationController
     @list.destroy
 
     respond_to do |format|
-      format.html { redirect_to( user_lists_path(@user) ) }
+      format.html { redirect_to( user_path(@user) ) }
       format.xml  { head :ok }
     end
   end
