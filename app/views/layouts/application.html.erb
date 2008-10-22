@@ -13,16 +13,16 @@
     <ul>
       <% if logged_in?  %>
       <%= link_to 'Crear Nueva Lista', new_user_list_path(@user) %>
-<% if @user.is_admin? %>
-<p><%= link_to 'Panel de administración', admin_path %></p>
-<% end -%>
+      <% if not @user.nil? and @user.is_admin? %>
+      <p><%= link_to 'Panel de administración', admin_path %></p>
+      <% end -%>
 
-  <p><%= link_to 'Logout', session_path, :method => :delete %></p>
+      <p><%= link_to 'Logout', session_path, :method => :delete %></p>
 
       <% else -%>
-      
-    <%= link_to 'Login', new_session_path %> or
-    <%= link_to 'Sign Up', new_user_path %>
+
+      <%= link_to 'Login', new_session_path %> or
+      <%= link_to 'Sign Up', new_user_path %>
 
 
       <% end -%>
