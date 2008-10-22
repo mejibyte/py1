@@ -9,16 +9,23 @@ class UsersController < ApplicationController
     # request forgery protection.
     # uncomment at your own risk
     # reset_session
-    @users=User.find(:all)
+    
+    #@users=User.find(:all)
+    
     @user = User.new(params[:user])   
+    
 
+    if User.count == 0
+       @user.is_admin = true
+    end
+    
     #############################
     #me imagino que es algo así #
-    		       	    	#
-    if @users.empty?		#
-       @user.is_admin = true	#
-    end		       	 	#
-    				#
+    #		       	    	#
+    #if @users.empty?		#
+    #   @user.is_admin = true	#
+    #end	       	 	#
+    #				#
     #############################
 
     @user.save

@@ -1,0 +1,43 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+       "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <meta http-equiv="content-type" content="text/html;charset=UTF-8" />
+  <title><%= "Asistente de Supermercado" %></title>
+<DIV ALIGN=CENTER><h1>Asistente de Supermercado</h1></DIV>
+ <%= stylesheet_link_tag 'arca' %>
+</head>
+<body>
+  <div id="sidebar">
+    <ul>
+      <% if logged_in?  %>
+      <%= link_to 'Crear Nueva Lista', new_user_list_path(@user) %>
+<% if @user.is_admin? %>
+<p><%= link_to 'Panel de administración', admin_path %></p>
+<% end -%>
+
+  <p><%= link_to 'Logout', session_path, :method => :delete %></p>
+
+      <% else -%>
+      
+    <%= link_to 'Login', new_session_path %> or
+    <%= link_to 'Sign Up', new_user_path %>
+
+
+      <% end -%>
+      </ul>
+    </div>
+    <div id="main">
+      <div id="container">
+        <% flash.each do |name, msg| -%>
+        <%= content_tag :div, msg, :id => "flash_#{name}" %>
+        <% end -%>
+        <%= yield  %>
+      </div>
+    </div>
+
+
+</body>
+</html>
+

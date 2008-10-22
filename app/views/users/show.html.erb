@@ -47,11 +47,17 @@
 <% end %>
 </table>
 <% end %>
+
+<!--
 <%= link_to 'Crear Nueva Lista', new_user_list_path(@user) %>
+
 <% if @user.is_admin? %>
 <p><%= link_to 'Panel de administración', admin_path %></p>
 <% end -%>
   <p><%= link_to 'Logout', session_path, :method => :delete %></p>
+-->
+
+
 <% else %>
   <p><strong>You are currently not logged in.</strong></p>
   <p>

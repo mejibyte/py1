@@ -1,0 +1,143 @@
+body { background-color: #4682B4; color: #333; }
+
+body, p, ol, ul, td {
+  font-family: verdana, arial, helvetica, sans-serif;
+  font-size:   13px;
+  line-height: 18px;
+}
+
+pre {
+  background-color: #eee;
+  padding: 10px;
+  font-size: 11px;
+}
+
+a { color: blue; }
+a:visited { color: #444; }
+a:hover { color: #fff; background-color:#000; }
+
+.fieldWithErrors {
+  padding: 2px;
+  background-color: red;
+  display: table;
+}
+
+#errorExplanation {
+  width: 400px;
+  border: 2px solid red;
+  padding: 7px;
+  padding-bottom: 12px;
+  margin-bottom: 20px;
+  background-color: #f0f0f0;
+}
+
+#errorExplanation h2 {
+  text-align: left;
+  font-weight: bold;
+  padding: 5px 5px 5px 15px;
+  font-size: 12px;
+  margin: -7px;
+  background-color: #c00;
+  color: #fff;
+}
+
+#errorExplanation p {
+  color: #333;
+  margin-bottom: 0;
+  padding: 5px;
+}
+
+#errorExplanation ul li {
+  font-size: 12px;
+  list-style: square;
+}
+
+div.uploadStatus {
+  margin: 5px;
+}
+
+div.progressBar {
+  margin: 5px;
+}
+
+div.progressBar div.border {
+  background-color: #fff;
+  border: 1px solid gray;
+  width: 100%;
+}
+
+div.progressBar div.background {
+  background-color: #333;
+  height: 18px;
+  width: 0%;
+}
+
+#main{
+  padding: 0px 50px;
+}
+
+#container{
+            width: 80%;
+            padding: 20px 40px;
+            margin: 0 auto;
+            text-align: left;
+            background-color: #FFFFFF;
+            border: 1px solid black;
+            float:right;
+
+}
+
+#sidebar {
+           float:left;
+           width:15%;
+           background-color:#ABCDEF;
+           color:black;
+           border: 1px solid black;
+}
+
+#sidebar h3{
+             padding: 0px 0px 0px 10px;
+}
+
+#flash_notice, #flash_error {
+  padding: 5px 8px;
+  margin: 10px 0;
+}
+
+#flash_notice {
+  background-color: #CFC;
+  border: solid 1px #6C6;
+}
+
+#flash_error {
+  background-color: #FCC;
+  border: solid 1px #C66;
+}
+
+
+#left {
+        float:left;
+        width:250px;
+        background-color:#FFFFFF;
+        color:black;
+}
+
+#footer {
+    clear:both;
+    font-size:12px;
+    font-family:Verdana, Arial, Helvetica, sans-serif;
+}
+.right {
+        color:gray;
+        background-color:#FFFFFF;
+        float:right;
+        font-size:100%;
+        margin-top:5px;
+}
+.left {
+        color:gray;
+        background-color:#FFFFFF;
+        float:left;
+        font-size:100%;
+        margin-top:5px;
+}
