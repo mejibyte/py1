@@ -18,7 +18,7 @@ class UsersController < ApplicationController
     if User.count == 0
        @user.is_admin = true
     end
-    
+    #este es un cambio idiota
     #############################
     #me imagino que es algo así #
     #		       	    	#
