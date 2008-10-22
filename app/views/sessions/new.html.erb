@@ -1,8 +1,8 @@
 <% form_tag session_path do -%>
-<p><label for="login">Login</label><br/>
+<p><label for="login">Nombre de Usuario</label><br/>
 <%= text_field_tag 'login' %></p>
 
-<p><label for="password">Password</label><br/>
+<p><label for="password">Contraseña</label><br/>
 <%= password_field_tag 'password' %></p>
 
 <!-- Uncomment this if you want this functionality
@@ -10,6 +10,6 @@
 <%= check_box_tag 'remember_me' %></p>
 -->
 
-<p><%= submit_tag 'Log in' %></p>
+<p><%= submit_tag 'Iniciar Sesión' %></p>
 <%= link_to 'Cancelar', :controller => 'home', :action=>'index' %>
 <% end -%>

@@ -1,4 +1,4 @@
-<h1>Welcome <%=h @user.login%></h1>
+<h1>Bienvenido <%=h @user.login%></h1>
 
 <% if logged_in? and current_user.id == @user.id %>
 
@@ -32,8 +32,8 @@
 <% else %>
 <table>
   <tr>
-    <th>   Name   </th>
-    <th>   Date   </th>
+    <th>   Nombre   </th>
+    <th>   Fecha   </th>
   </tr>
 
 <% for list in @lists %>
@@ -42,7 +42,7 @@
     <td><%=h list.date %></td>
     <td><%= link_to 'Ver', [@user, list] %></td>
     <td><%= link_to 'Editar', edit_user_list_path(@user, list) %></td>
-    <td><%= link_to 'Eliminar', [@user, list], :confirm => 'Are you sure?', :method => :delete %></td>
+    <td><%= link_to 'Eliminar', [@user, list], :confirm => '¿Seguro desea eliminar la lista?', :method => :delete %></td>
   </tr>
 <% end %>
 </table>
@@ -59,9 +59,9 @@
 
 
 <% else %>
-  <p><strong>You are currently not logged in.</strong></p>
+  <p><strong>No ha iniciado sesión.</strong></p>
   <p>
-    <%= link_to 'Login', new_session_path %> or
-    <%= link_to 'Sign Up', new_user_path %>
+    <%= link_to 'Iniciar Sesión', new_session_path %> or
+    <%= link_to 'Regístrese', new_user_path %>
   </p>
 <% end %>

@@ -1,8 +1,8 @@
-<h1>Listing lists</h1>
+<h1>Mis listas</h1>
 <table>
   <tr>
-    <th>Name</th>
-    <th>Date</th>
+    <th>Nombre</th>
+    <th>Fecha</th>
   </tr>
 
 <% for list in @lists %>
@@ -11,12 +11,12 @@
     <td><%=h list.date %></td>
     <td><%= link_to 'Ver', [@user, list] %></td>
     <td><%= link_to 'Editar', edit_user_list_path(@user, list) %></td>
-    <td><%= link_to 'Eliminar', [@user, list], :confirm => 'Are you sure?', :method => :delete %></td>
+    <td><%= link_to 'Eliminar', [@user, list], :confirm => '¿Seguro desea eliminar la lista?', :method => :delete %></td>
   </tr>
 <% end %>
 </table>
 
 <br />
 
-<%= link_to 'New list', new_user_list_path(@user) %> | 
+<%= link_to 'Nueva lista', new_user_list_path(@user) %> | 
 <%= link_to 'Mi Cuenta', user_path(@user)%>

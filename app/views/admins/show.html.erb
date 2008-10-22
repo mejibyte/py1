@@ -1,12 +1,12 @@
 <h1>Panel de administración</h1>
 
 <% if authorized? %>
-  <p><strong>Yo are logged in as <%=h current_user.login %></strong></p>
-  <p><%= link_to 'Logout', session_path, :method => :delete %></p>
+  <p><strong>Nombre de Usuario: <%=h current_user.login %></strong></p>
+  <p><%= link_to 'Cerrar Sesión', session_path, :method => :delete %></p>
 <% else %>
   <p><strong>Permiso denegado.</strong></p>
   <p>
-    <%= link_to 'Back', '/' %>
+    <%= link_to 'Vovler', '/' %>
   </p>
 <% end %>
 

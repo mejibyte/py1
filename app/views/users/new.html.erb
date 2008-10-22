@@ -8,21 +8,21 @@
     <TD><%= f.text_field :lastname %></TD></TR>
 </TABLE>
 
-<p><label for="login">Login</label><br/>
+<p><label for="login">Nombre de Usuario</label><br/>
 <%= f.text_field :login %></p>
 
-<p><label for="email">Email</label><br/>
+<p><label for="email">e-mail</label><br/>
 <%= f.text_field :email %></p>
 
 
 
 <TABLE>
-  <TR><TD><label for="password">Password</label><br/></p></TD>
-<TD><p><label for="password_confirmation">Confirm Password</label><br/></p></TD></TR>
+  <TR><TD><label for="password">Contraseña</label><br/></p></TD>
+<TD><p><label for="password_confirmation">Confirmar Contraseña</label><br/></p></TD></TR>
 <TR><TD> <%= f.password_field :password %>  </TD>
   <TD><%= f.password_field :password_confirmation %></TD></TR>
 </TABLE>
 
-<p><%= submit_tag 'Sign up' %></p>
+<p><%= submit_tag 'Regístrese' %></p>
 <%= link_to 'Cancelar', :controller => 'home', :action=>'index' %>
 <% end -%>

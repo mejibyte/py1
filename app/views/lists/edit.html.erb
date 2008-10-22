@@ -1,4 +1,4 @@
-<h1>Editing list</h1>
+<h1>Editar lista</h1>
 
 <% form_for([@user, @list]) do |f| %>
   <%= f.error_messages %>
@@ -7,6 +7,6 @@
 
 <% end %>
 
-<%= link_to 'Show', [@user, @list] %> |
+<%= link_to 'Ver', [@user, @list] %> |
 <!--<%= link_to 'Back', user_lists_path(@user) %>-->
 <%= link_to 'Mi Cuenta', user_path(@user)%>

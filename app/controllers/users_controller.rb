@@ -9,19 +9,13 @@ class UsersController < ApplicationController
     # request forgery protection.
     # uncomment at your own risk
     # reset_session
-
-    #@users=User.find(:all)
-
     @user = User.new(params[:user])
-
-
-
     @user.is_admin = true unless User.count > 0
     @user.save
     if @user.errors.empty?
       self.current_user = @user
       redirect_back_or_default('/')
-      flash[:notice] = "Thanks for signing up!"
+      flash[:notice] = "¡Gracias por registrarse!"
     else
       render :action => 'new'
     end

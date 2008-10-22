@@ -55,7 +55,7 @@ class ListsController < ApplicationController
     @list.date = Time.now.advance(:hours=>-5)
     respond_to do |format|
       if @list.save
-        flash[:notice] = 'List was successfully created.'
+        flash[:notice] = 'La lista fue creada con éxito.'
         format.html { redirect_to([@user, @list]) }
         format.xml  { render :xml => @list, :status => :created, :location => @list }
       else
@@ -73,7 +73,7 @@ class ListsController < ApplicationController
 
     respond_to do |format|
       if @list.update_attributes(params[:list])
-        flash[:notice] = 'List was successfully updated.'
+        flash[:notice] = 'La lista se ha actualizado.'
         format.html { redirect_to([@user, @list] ) }
         format.xml  { head :ok }
       else

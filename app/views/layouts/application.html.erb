@@ -17,12 +17,13 @@
       <p><%= link_to 'Panel de administración', admin_path %></p>
       <% end -%>
 
-      <p><%= link_to 'Logout', session_path, :method => :delete %></p>
+      <p><%= link_to 'Cerrar Sesión', session_path, :method => :delete %></p>
 
       <% else -%>
 
-      <%= link_to 'Login', new_session_path %> or
-      <%= link_to 'Sign Up', new_user_path %>
+      <%= link_to 'Iniciar Sesión', new_session_path %>
+      <%= link_to 'Regístrese', new_user_path %> 
+ 
 
 
       <% end -%>
