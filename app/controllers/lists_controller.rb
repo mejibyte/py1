@@ -8,6 +8,11 @@ class ListsController < ApplicationController
     else
       @user = User.find(params[:user_id])
     end
+
+    unless logged_in? and current_user.id == @user.id
+      flash[:error] = "Acceso denegado";
+      redirect_to '/'
+    end
   end
 
   # GET /lists

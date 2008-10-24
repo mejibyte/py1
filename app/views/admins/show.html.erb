@@ -2,6 +2,8 @@
 
 <% if authorized? %>
   <p><strong>Nombre de Usuario: <%=h current_user.login %></strong></p>
+
+  <div> <%= link_to "Ir a control de productos", products_path %> </div>
   <p><%= link_to 'Cerrar Sesión', session_path, :method => :delete %></p>
 <% else %>
   <p><strong>Permiso denegado.</strong></p>
