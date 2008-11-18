@@ -12,17 +12,18 @@
   <div id="sidebar">
     <ul>
       <% if logged_in?  %>
-      <%= link_to 'Crear Nueva Lista', new_user_list_path(@user) %>
+      <%= link_to( image_tag("lis.jpg",:border=>0, :alt => 'Crear Nueva Lista'), new_user_list_path(@user) )%>
       <% if not @user.nil? and @user.is_admin? %>
-      <p><%= link_to 'Panel de administración', admin_path %></p>
+      <p><%= link_to( image_tag("adm.jpg",:border=>0, :alt => 'Panel de administración'), admin_path) %></p>
       <% end -%>
 
-      <p><%= link_to 'Cerrar Sesión', session_path, :method => :delete %></p>
+      <p><%= link_to( image_tag("out.jpg",:border=>0, :alt => 'Cerrar Sesión'), session_path, :method => :delete) %></p>
+
 
       <% else -%>
+      <%= link_to( image_tag("key.jpg",:border=>0, :alt => "Iniciar Sesión"), new_session_path )%>
 
-      <%= link_to 'Iniciar Sesión', new_session_path %>
-      <%= link_to 'Regístrese', new_user_path %> 
+      <%= link_to( image_tag("reg.jpg",:border=>0, :alt => "Regístrese"), new_user_path )%> 
  
 
 
