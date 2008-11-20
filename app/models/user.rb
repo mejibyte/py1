@@ -3,6 +3,7 @@ class User < ActiveRecord::Base
   # Virtual attribute for the unencrypted password
   attr_accessor :password
 
+  # Begins the attributes validation
   validates_presence_of     :login, :email
   validates_presence_of     :password,                   :if => :password_required?
   validates_presence_of     :password_confirmation,      :if => :password_required?
@@ -12,6 +13,7 @@ class User < ActiveRecord::Base
   validates_length_of       :email,    :within => 3..100
   validates_uniqueness_of   :login, :email, :case_sensitive => false
   before_save :encrypt_password
+  # Ends the attributes validation
 
   has_many :lists, :dependent => :destroy
 
