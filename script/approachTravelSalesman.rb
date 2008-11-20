@@ -1,26 +1,35 @@
 #!/usr/bin/ruby -w
-#genetic.rb
+# Genetic Algorithm (GA) idea
+# Step 1. Generate a random initial population of itineraries.
+# Step 2. Replicate each itinerary with some variation.
+# Step 3. Rank the population according to a fitness function.
+# Step 4. Reduce the population to a prescribed size,
+#  keeping only the best ranking itineraries.
+# Step 5. Go to step 2 unless best itinerary meets an exit criterion.
 
 module RubyGa
   
   class Gene
     
     attr_accessor :city, :lat, :lon
-    
+    # The constructor of Gene
     def initialize(city = nil, lat = 0.0, lon = 0.0)
       @city = city
       @lat = lat
       @lon = lon
     end
-
+    
+    #Create an other object Gene with the same attributes
     def copy
       Gene.new(@city, @lat, @lon)
     end
 
+    # this/self is equal to that gene
     def eql?(gene)
       self == gene
     end
 
+    # Overload the operator == to compare to Gene objects
     def ==(gene)
       gene.class == self.class &&
       @city == gene.city &&
@@ -28,6 +37,7 @@ module RubyGa
       @lon == gene.lon
     end
 
+    # to string
     def to_s
       "(#{@lat}, #{@lon})"
     end
@@ -36,11 +46,13 @@ module RubyGa
 
   class Chromosome < Array
 
+    # The constructor of Chromosome
     def initialize(fitness = 0.0, fitness_alg = Fitness.new)
       @fitness = fitness
       @fitness_alg = fitness_alg
     end
 
+    # Replicate the itenerary
     def genes(i = 0, j = size)
       ngenes = []
       if (i > -1 && j <= size && j >= i)
@@ -51,6 +63,7 @@ module RubyGa
       ngenes
     end
 
+    # Overload the operator == to compare to Chromosome objects
     def ==(chrom)
       false unless chrom.class == self.class && size == chrom.size
       0.upto(size-1) do |i|
@@ -58,22 +71,25 @@ module RubyGa
       end
       true
     end
-
+    
+    # this/self is equal to that chrom
     def eql?(chrom)
       self == chrom
     end
 
+    # to determine the rank/distance/fitness of the itenerary/chromosome
     def fitness
       if @fitness == 0.0
         @fitness = @fitness_alg.rank(self)
       end
       @fitness
     end
-
+    
+    # to duplicate a Chromosome
     def copy
       c = Chromosome.new(0.0, @fitness_alg)
       genes.each do |gene|
-        c << gene
+        c << gene #push_back arreglo
       end
       c
     end
@@ -128,7 +144,7 @@ module RubyGa
   end # Genotype
 
   class Fitness
-
+    # to known the cost/rank of the chromosome
     def rank(chrom)
       fit = distance(chrom.last, chrom.first)
       i = 0
@@ -141,6 +157,7 @@ module RubyGa
       fit
     end
 
+    # to known the distance in the chromosome between genes
     def distance(g0, g1)
       Math::sqrt( ((g1.lat-g0.lat).abs**2) + ((g1.lon-g0.lon).abs**2) )
     end
@@ -273,8 +290,7 @@ mutator = Mutator.new)
 
 end # RubyGa
 
-# Fin del modulo
-# Para pruebas sencillas
+# DEBUG
 if __FILE__ == $0
 
   include RubyGa
@@ -298,4 +314,4 @@ if __FILE__ == $0
   end
 
 end
-# Fin pruebas
+# DEBUG
