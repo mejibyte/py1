@@ -273,7 +273,8 @@ mutator = Mutator.new)
 
 end # RubyGa
 
-
+# Fin del modulo
+# Para pruebas sencillas
 if __FILE__ == $0
 
   include RubyGa
@@ -297,3 +298,4 @@ if __FILE__ == $0
   end
 
 end
+# Fin pruebas
