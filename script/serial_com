@@ -1,1 +1,39 @@
-/home/sebastian/estudio/proyectoIntegrador1/proyecto/com.rb
+#!/usr/bin/env ruby
+require "serialport.so"
+
+
+class Com
+  #params for serial port
+  def create_connection
+    port_str = "/dev/ttyUSB0" 
+    baud_rate = 9600
+    data_bits = 8
+    stop_bits = 1
+    parity = SerialPort::NONE
+    @sp = SerialPort.new(port_str, baud_rate, data_bits, stop_bits, parity)
+  end
+  
+  def send(numero_de_productos,arreglo_productos)
+    i=0
+    while (i<numero_de_productos)
+      
+      arreglo_productos[i].chomp!
+      #      @sp.putc(a.each_char {|s| p s })
+      arreglo_productos[i].each_char {|char|@sp.putc(char) }
+    end
+  end
+  
+  def close
+    @sp.close 
+  end
+end
+
+#a=Com.new
+#a.create_connection
+
+#while true do
+ # b=gets
+ # p b
+ # a.send(b)
+#end
+#a.close
