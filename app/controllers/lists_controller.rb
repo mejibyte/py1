@@ -1,5 +1,7 @@
+# -*- coding: utf-8 -*-
 #Manage the shopping list
 class ListsController < ApplicationController
+  include TravelingSalesman
 
   before_filter :load_user
 
@@ -34,6 +36,8 @@ class ListsController < ApplicationController
   # shows the list
   def show
     @list = @user.lists.find(params[:id])
+
+    calcular_ruta_optima(@list)
 
     respond_to do |format|
       format.html # show.html.erb

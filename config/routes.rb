@@ -2,7 +2,6 @@ ActionController::Routing::Routes.draw do |map|
   map.resources :ubications
 
   map.resources :lists
-
   map.resources :products
 
 
