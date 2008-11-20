@@ -1,8 +1,9 @@
+# -*- coding: utf-8 -*-
 # To control the products, this is a space for the admins users
 class ProductsController < ApplicationController
 
   before_filter :check_admin_rights
-  
+
   #to check the rights that had a user to be hear
   def check_admin_rights
     unless logged_in? and current_user.is_admin?
@@ -51,6 +52,13 @@ class ProductsController < ApplicationController
   # The form to make changes
   def edit
     @product = Product.find(params[:id])
+    all_ubications = Ubication.find :all
+    @ubications = Hash.new
+    @ubications["Ninguna"] = nil
+    for u in all_ubications do
+      @ubications[u.name] = u.id
+    end
+
   end
 
   # POST /products

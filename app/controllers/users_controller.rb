@@ -1,9 +1,10 @@
+# -*- coding: utf-8 -*-
 #to control the status of users
 class UsersController < ApplicationController
- 
+
   def new
   end
- 
+
   # protects against session fixation attacks, wreaks havoc with
   # request forgery protection.
   # uncomment at your own risk
@@ -21,16 +22,16 @@ class UsersController < ApplicationController
       render :action => 'new'
     end
   end
- 
+
   def show
     @user = User.find(params[:id])
     @lists = @user.lists
- 
+
     respond_to do |format|
       format.html # show.html.erb
     end
   end
- 
- 
+
+
 end
- 
+

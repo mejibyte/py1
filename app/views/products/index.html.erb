@@ -11,7 +11,14 @@
   <tr>
     <td><%=h product.name %></td>
     <td><%=h product.section %></td>
-    <td><%=h product.ubication %></td>
+
+    <% if product.ubication.nil? -%>
+    <td><%=h "Ninguna" %></td>
+    <% else -%>
+    <td><%=h product.ubication.name %></td>
+    <% end -%>
+
+
     <td><%= link_to 'Ver', product %></td>
     <td><%= link_to 'Editar', edit_product_path(product) %></td>
     <td><%= link_to 'Eliminar', product, :confirm => '¿Seguro desea eliminar el producto?', :method => :delete %></td>

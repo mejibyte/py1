@@ -10,7 +10,11 @@
 
 <p>
   <b>Ubication:</b>
-  <%=h @product.ubication %>
+  <% if @product.ubication.nil? -%>
+  <td><%=h "Ninguna" %></td>
+  <% else -%>
+  <td><%=link_to @product.ubication.name, ubication_path(@product.ubication) %></td>
+  <% end -%>
 </p>
 
 
