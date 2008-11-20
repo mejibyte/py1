@@ -1,7 +1,9 @@
+# To control the products, this is a space for the admins users
 class ProductsController < ApplicationController
 
   before_filter :check_admin_rights
-
+  
+  #to check the rights that had a user to be hear
   def check_admin_rights
     unless logged_in? and current_user.is_admin?
       flash[:error] = "Permiso denegado"
@@ -11,6 +13,7 @@ class ProductsController < ApplicationController
 
   # GET /products
   # GET /products.xml
+  # get all the products
   def index
     @products = Product.find(:all)
 
@@ -22,6 +25,7 @@ class ProductsController < ApplicationController
 
   # GET /products/1
   # GET /products/1.xml
+  # show the products that index return to the controller
   def show
     @product = Product.find(params[:id])
 
@@ -33,6 +37,7 @@ class ProductsController < ApplicationController
 
   # GET /products/new
   # GET /products/new.xml
+  # show the option to create a new product
   def new
     @product = Product.new
 
@@ -43,12 +48,14 @@ class ProductsController < ApplicationController
   end
 
   # GET /products/1/edit
+  # The form to make changes
   def edit
     @product = Product.find(params[:id])
   end
 
   # POST /products
   # POST /products.xml
+  # to take the params for new and create a product
   def create
     @product = Product.new(params[:product])
 
@@ -66,6 +73,7 @@ class ProductsController < ApplicationController
 
   # PUT /products/1
   # PUT /products/1.xml
+  # to update the product with the params that give the form edit
   def update
     @product = Product.find(params[:id])
 
@@ -83,6 +91,7 @@ class ProductsController < ApplicationController
 
   # DELETE /products/1
   # DELETE /products/1.xml
+  # to delete a product
   def destroy
     @product = Product.find(params[:id])
     @product.destroy

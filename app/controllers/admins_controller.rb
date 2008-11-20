@@ -1,4 +1,5 @@
 # -*- coding: utf-8 -*-
+# This controller manage the login in to Admin area
 class AdminsController < ApplicationController
   
   def show

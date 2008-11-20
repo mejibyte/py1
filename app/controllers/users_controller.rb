@@ -1,14 +1,15 @@
+#to control the status of users
 class UsersController < ApplicationController
  
   def new
   end
  
+  # protects against session fixation attacks, wreaks havoc with
+  # request forgery protection.
+  # uncomment at your own risk
+  # reset_session
   def create
     cookies.delete :auth_token
-    # protects against session fixation attacks, wreaks havoc with
-    # request forgery protection.
-    # uncomment at your own risk
-    # reset_session
     @user = User.new(params[:user])
     @user.is_admin = true unless User.count > 0
     @user.save

@@ -3,7 +3,7 @@ class SessionsController < ApplicationController
  
   def new
   end
- 
+  # to create a sessions login
   def create
     self.current_user = User.authenticate(params[:login], params[:password])
     if logged_in?
@@ -17,7 +17,8 @@ class SessionsController < ApplicationController
       render :action => 'new'
     end
   end
- 
+  
+  #to close the session
   def destroy
     self.current_user.forget_me if logged_in?
     cookies.delete :auth_token

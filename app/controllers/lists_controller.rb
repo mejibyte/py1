@@ -1,7 +1,9 @@
+#Manage the shopping list
 class ListsController < ApplicationController
 
   before_filter :load_user
 
+  #defines the list owner
   def load_user
     if params[:user_id].nil?
       redirect_to '/'
@@ -17,6 +19,7 @@ class ListsController < ApplicationController
 
   # GET /lists
   # GET /lists.xml
+  # Cath all the list that owns to determine user
   def index
     @lists = @user.lists
 
@@ -28,6 +31,7 @@ class ListsController < ApplicationController
 
   # GET /lists/1
   # GET /lists/1.xml
+  # shows the list
   def show
     @list = @user.lists.find(params[:id])
 
@@ -39,6 +43,7 @@ class ListsController < ApplicationController
 
   # GET /lists/new
   # GET /lists/new.xml
+  # the form to create a new list
   def new
     @list = @user.lists.build
 
@@ -49,12 +54,14 @@ class ListsController < ApplicationController
   end
 
   # GET /lists/1/edit
+  # to make changes and edit a list
   def edit
     @list = @user.lists.find(params[:id])
   end
 
   # POST /lists
   # POST /lists.xml
+  # to create a new list with the params of the new method
   def create
     @list = @user.lists.build(params[:list])
     @list.date = Time.now.advance(:hours=>-5)
@@ -72,6 +79,7 @@ class ListsController < ApplicationController
 
   # PUT /lists/1
   # PUT /lists/1.xml
+  # update: update a list with the params of the edit form
   def update
     params[:list][:product_ids] ||= []
     @list = @user.lists.find(params[:id])
@@ -90,6 +98,7 @@ class ListsController < ApplicationController
 
   # DELETE /lists/1
   # DELETE /lists/1.xml
+  # destroy delete a list
   def destroy
     @list = List.find(params[:id])
     @list.destroy
