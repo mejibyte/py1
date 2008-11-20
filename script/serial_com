@@ -3,9 +3,9 @@ require "serialport.so"
 
 
 class Com
-  #params for serial port
+  #params for serial port for O.S based on *nix
   def create_connection
-    port_str = "/dev/ttyUSB0" 
+    port_str = "/dev/ttyUSB0" #we used that becouse we gonna show the project in a laptop that not have serial port
     baud_rate = 9600
     data_bits = 8
     stop_bits = 1
@@ -13,16 +13,18 @@ class Com
     @sp = SerialPort.new(port_str, baud_rate, data_bits, stop_bits, parity)
   end
   
-  def send(numero_de_productos,arreglo_productos)
+  #def send receives de number of the products and the array of then
+  # to be send by the serial port
+  def send(number_product,array_of_products)
     i=0
-    while (i<numero_de_productos)
-      
-      arreglo_productos[i].chomp!
-      #      @sp.putc(a.each_char {|s| p s })
-      arreglo_productos[i].each_char {|char|@sp.putc(char) }
+    while (i<number_product)
+      array_of_products[i].chomp!
+      array_of_products[i].each_char {|char|@sp.putc(char) }#      @sp.putc(a.each_char {|s| p s })
+      i+=1
     end
   end
   
+  #close the port and the transmission
   def close
     @sp.close 
   end

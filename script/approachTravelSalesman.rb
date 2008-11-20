@@ -99,7 +99,7 @@ module RubyGa
   class Grid
 
     attr_reader :n, :pts, :min
-
+    # The constructor of the Grid Objects
     def initialize(n)
       raise ArgumentError unless Integer === n && n > 1
       @n = n
@@ -116,10 +116,11 @@ module RubyGa
 
   end # Grid
 
-  class Genotype
-
+  #The Genotype is the merge of Gene<Chromosome<Grid
+  class Genotype 
+    
     attr_accessor :grid
-
+    #The constructor for Genotype object
     def initialize(grid = Grid.new(5))
       @grid = grid
       @genes = Array.new
@@ -131,7 +132,8 @@ module RubyGa
         @genes << Gene.new("Node #{i}", x, y)
       end
     end
-
+    
+    #The variation for the replicates
     def new_rand_chrom
       @genes.replace @genes.sort_by { rand }
       c = Chromosome.new
@@ -164,14 +166,16 @@ module RubyGa
 
   end # Fitness
 
-  class Crossover
+  #The generation of the GA
+  class Crossover 
 
     attr_accessor :rate
-
+    #The constructor for the Crossover
     def initialize
       @rate = 0.90
     end
-
+    
+    #def crossover generate the new leaf of the genetic tree
     def crossover(p0, p1)
       children = []
       if rand < @rate
@@ -202,11 +206,13 @@ module RubyGa
   class Mutator
 
     attr_accessor :rate
-
+    
+    #The constructor for Mutator
     def initialize
       @rate = 0.10
     end
-
+    
+    #def mutate! change the order and the value of the chrom/(part of the path)
     def mutate!(chrom)
       if rand < @rate
         s = chrom.length - 1
@@ -227,10 +233,13 @@ module RubyGa
 
   end # Mutator
 
+  #The Population class manage the distribution and the process of the genetic generation for
+  #the differents path tha are the approach to the problem of the traveling salesman
   class Population < Array
 
     attr_accessor :genotype, :crossover, :mutator, :offspring
-
+    
+    #The constructor for Population objects
     def initialize(genotype = Genotype.new, crossover = Crossover.new,
 mutator = Mutator.new)
       @genotype = genotype
@@ -238,6 +247,7 @@ mutator = Mutator.new)
       @mutator = mutator
     end
 
+    #def prepare prepares the seed for genetic algorithm
     def prepare(size = 100, initial_size = 1000, offspring = 80)
       @offspring = offspring
       initial = []

@@ -1,9 +1,9 @@
-# This controller handles the login/logout function of the site.  
+# This controller handles the login/logout function of the site.
 class SessionsController < ApplicationController
-
+ 
   def new
   end
-
+ 
   def create
     self.current_user = User.authenticate(params[:login], params[:password])
     if logged_in?
@@ -17,7 +17,7 @@ class SessionsController < ApplicationController
       render :action => 'new'
     end
   end
-
+ 
   def destroy
     self.current_user.forget_me if logged_in?
     cookies.delete :auth_token
